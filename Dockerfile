@@ -16,8 +16,8 @@ FROM tomcat:10.1-jdk21-temurin
 # Remove default Tomcat apps
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Deploy as CDList.war -> http://localhost:8080/CDList/
-COPY --from=build /app/target/*.war /usr/local/tomcat/webapps/CDList.war
+# Deploy as ROOT.war -> https://your-app.onrender.com/
+COPY --from=build /app/target/*.war /usr/local/tomcat/webapps/ROOT.war
 
 EXPOSE 8080
 CMD ["catalina.sh", "run"]
